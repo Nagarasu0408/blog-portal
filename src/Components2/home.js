@@ -10,6 +10,7 @@ import localData from '../Data/localData.json';
 
 
 import React, { useEffect, useRef } from 'react';
+import OfferBanner from '../Offer_Banner/offer';
 
 
 function Home() {
@@ -62,7 +63,6 @@ function Home() {
 
     return (
         <>
-
             <div className='Banner'>
                 <div className='Navigation_Bar_Top'>
                     <img src='/./logo.png' id='logo' alt='Logo'></img>

@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 
 function OwnerRegistrationForm() {
@@ -17,29 +18,81 @@ function OwnerRegistrationForm() {
         event.target.value = "";
     };
 
+    const [Name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [mobile, setMobile] = useState('');
+    const [location_city, setLocationCity] = useState('');
+    const [local_Area_name, setLocalArea] = useState('');
+    const [quotes, setQuotes] = useState('');
+    const [about_me, setAbout] = useState('');
+    const [shop_name, setShopName] = useState('');
+    const [shop_type, setType] = useState('');
+    const [shop_des, setShopDes] = useState('');
+    const [shop_address, setShopAddress] = useState('');
+    const [location, setLocation] = useState('');
+    const [facebook, setFacebook] = useState('');
+    const [whatsapp, setWhatsApp] = useState('');
+    const [instagram, setInstagram] = useState('');
+
+
+
+
+    // formData collect in DB
+    const SubmitData = (e) => {
+        e.preventDefault();
+        if (Name == '' || email == '' || phone == '' || mobile == '' || location_city == ''
+            || local_Area_name == '' || quotes == '' || about_me == '' || shop_name == ''
+            || shop_type == '' || shop_des == '' || shop_address == '' || location == '' ||
+            facebook == '' || whatsapp == '' || instagram == '') {
+            console.log('Fill all the Field');
+            alert("Fill all the Field");
+
+        }
+        else {
+            axios.post('http://localhost:3001/OwnerRegistration', {
+                Name, email, phone,
+                mobile, location_city,
+                local_Area_name, quotes,
+                about_me, shop_name, shop_type,
+                shop_des, shop_address, location,
+                facebook, whatsapp, instagram
+            })
+                .then(console.log("Ok Done"))
+                .catch(err => console.log(err));
+        }
+    };
+
+
+
+
+
+
+
+
     function deleteHandler(image) {
         setSelectedImages(selectedImages.filter((e) => e !== image));
         URL.revokeObjectURL(image);
     }
     return (
         <>
-            <form>
+            <form onSubmit={SubmitData}>
                 <div className='Registration_details'>
                     <div className='Customer_details'>
                         <p id='Header'>Registration Form</p>
                         <div className='Profile_pic'></div>
-                        <input type='text' placeholder='Name' />
-                        <input type='text' placeholder='Email' />
-                        <input type='text' placeholder='Phone' />
-                        <input type='text' placeholder='Mobile' />
-                        <input type='text' placeholder='Location_city' />
-                        <input type='text' placeholder='Local_Area_Name' />
-                        <input type='text' placeholder='Quotes' />
-                        <textarea type='text' placeholder='About Me'></textarea>
+                        <input type='text' placeholder='Name' onChange={(e) => setName(e.target.value)} />
+                        <input type='text' placeholder='Email' onChange={(e) => setEmail(e.target.value)} />
+                        <input type='text' placeholder='Phone' onChange={(e) => setPhone(e.target.value)} />
+                        <input type='text' placeholder='Mobile' onChange={(e) => setMobile(e.target.value)} />
+                        <input type='text' placeholder='Location_city' onChange={(e) => setLocationCity(e.target.value)} />
+                        <input type='text' placeholder='Local_Area_Name' onChange={(e) => setLocalArea(e.target.value)} />
+                        <input type='text' placeholder='Quotes' onChange={(e) => setQuotes(e.target.value)} />
+                        <textarea type='text' placeholder='About Me' onChange={(e) => setAbout(e.target.value)}></textarea>
                     </div>
                     <div className='Shop_deatils'>
-                        <input type='text' placeholder='Shop_Name' />
-                        <input type='text' placeholder='Shop_Type(Veg/Non-Veg)' />
+                        <input type='text' placeholder='Shop_Name' onChange={(e) => setShopName(e.target.value)} />
+                        <input type='text' placeholder='Shop_Type(Veg/Non-Veg)' onChange={(e) => setType(e.target.value)} />
                         <div className='Upload_img'>
                             <section>
                                 <label>
@@ -94,17 +147,17 @@ function OwnerRegistrationForm() {
                                 </div>
                             </section>
                         </div>
-                        <textarea type='text' placeholder='Shop Description' />
-                        <textarea type='text' placeholder='Shop Address' />
-                        <input type='text' placeholder='Location' />
-                        <input type='text' placeholder='FaceBook' />
-                        <input type='text' placeholder='WhatsApp' />
-                        <input type='text' placeholder='Instagram' />
+                        <textarea type='text' placeholder='Shop Description' onChange={(e) => setShopDes(e.target.value)} />
+                        <textarea type='text' placeholder='Shop Address' onChange={(e) => setShopAddress(e.target.value)} />
+                        <input type='text' placeholder='Location' onChange={(e) => setLocation(e.target.value)} />
+                        <input type='text' placeholder='FaceBook' onChange={(e) => setFacebook(e.target.value)} />
+                        <input type='text' placeholder='WhatsApp' onChange={(e) => setWhatsApp(e.target.value)} />
+                        <input type='text' placeholder='Instagram' onChange={(e) => setInstagram(e.target.value)} />
 
                     </div>
                 </div>
                 <div className="Check_Box"><p><input type="checkBox" /> Accept All <a href="#">Terms & Condition</a></p></div>
-                <button id="Submit_btn">Submit</button>
+                <button type="submit" id="Submit_btn">Submit</button>
             </form>
         </>
     );

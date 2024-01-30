@@ -1,13 +1,20 @@
 
-import { useState } from 'react';
-import { PlaceData } from './PlaceData';
-import Card from '../card';
-import { useNavigate } from 'react-router-dom'
+import { useRef, useState } from 'react';
+import { PlaceCard, PlaceData } from './PlaceData';
+import PhotoGrid from './PhotoGallery';
+import NavBar from '../NavBar';
+import Footer from './Footer';
+import Carousel_View from './Carosual';
+import GoToTop from './GotoTop';
+import NEWS from './NewsCrad';
 
 
 
 function Place() {
-    const navigate = useNavigate();
+    const ref = useRef(null);
+    const Click = () => {
+        ref.current?.scrollIntoView({ behavior: 'smooth' });
+    }
 
     const [index, setIndex] = useState(0);
     let PlaceInfo = PlaceData[index];
@@ -16,36 +23,35 @@ function Place() {
         setIndex(newIndex);
     };
     return (<>
-        <div>
-            <div className='Navigation_Bar_Top'>
-                <img id='logo' src='/./logo.png' alt='Logo'></img>
-                <div className='Navigation_Bar'>
-                    <button id='Nav_bar' onClick={() => navigate('/')}>Home</button>
-                    <button id='Nav_bar'>About</button>
-                    <button id='Nav_bar'>FAQ</button>
-                    <button id='Nav_bar' onClick={() => navigate('Card')}>Login</button>
+        <div className='Place_Body'>
+            <NavBar />
+            <button className='btn' onClick={Click}><svg><rect></rect></svg>Let's Go</button>
+            <Carousel_View />
+            <div className='Title'><p>Places</p></div>
+            <div className="FullView" ref={ref}>
+                <div className="card">
+                    <img src={PlaceInfo.Image_url} alt='image' onClick={() => hasNext ? setIndex(index + 1) : setIndex(0)} />
+                    <div className="Image">
+                        {PlaceData.map((event, i) => (
+                            // Below code take from GPT and {`Slide ${i === index ? 'active' : ''}`} this line is optional.
+                            <div className={`Slide ${i === index ? 'active' : ''}`} key={event.Id} onClick={() => handleImageClick(i)}>
+                                <img src={event.Image_url} />
+                            </div>
+                        ))}
+                    </div>
+                    <p className='Title'>{PlaceInfo.Name}</p>
+                    <p>
+                        {PlaceInfo.Info}
+                    </p>
                 </div>
             </div>
-        </div>
-        <div className="FullView">
-            <div className="card">
-                <img src={PlaceInfo.Image_url} alt='image' onClick={() => hasNext ? setIndex(index + 1) : setIndex(0)} />
-                <div className="Image">
-                    {PlaceData.map((event, i) => (
-                        // Below code take from GPT and {`Slide ${i === index ? 'active' : ''}`} this line is optional.
-                        <div className={`Slide ${i === index ? 'active' : ''}`} key={event.Id} onClick={() => handleImageClick(i)}>
-                            <img src={event.Image_url} />
-                        </div>
-                    ))}
-                </div>
-                <p className='Title'>{PlaceInfo.Name}</p>
-                <p>
-                    {PlaceInfo.Info}
-                </p>
-            </div>
-        </div>
-        <div className='Vada'>
-            <Card />
+            <PlaceCard />
+            <div className='Title'><p>Photos</p></div>
+            <PhotoGrid />
+            <div className='Title'><p>News</p></div>
+            <NEWS />
+            <Footer />
+            <GoToTop />
         </div>
     </>)
 }

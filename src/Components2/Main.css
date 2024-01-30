@@ -90,7 +90,7 @@
     padding: 10px;
     border: none;
     outline: none;
-    background: rgba(11, 232, 244, 0.764);
+    background: rgba(88, 88, 88, 0.564);
     width: 50px;
     border: 1px solid rgb(198, 198, 198);
     border-radius: 100%;
@@ -101,7 +101,7 @@
 }
 
 .BacktoTop p {
-    color: rgba(221, 0, 255, 0.762);
+    color: rgba(0, 0, 0, 0.762);
     position: fixed;
     bottom: -30px;
     font-weight: 700;
@@ -115,6 +115,7 @@
 
 .demo,
 .OutSide,
+.OutSide2,
 .Top_List,
 #FAQ,
 .Developer_info {
@@ -143,7 +144,8 @@
     background-size: cover;
 }
 
-.OutSide p {
+.OutSide p,
+.OutSide2 p {
     font-size: 80px;
     letter-spacing: 10px;
     color: rgb(255, 255, 255);
@@ -229,15 +231,15 @@
     width: auto;
 }
 
-.LoginPage_Container::before {
+/* .LoginPage_Container::before {
     content: '';
     position: absolute;
     bottom: 0px;
     width: 100%;
     height: 100px;
     background: linear-gradient(to top, rgb(254, 254, 254), transparent);
-    z-index: 1000;
-}
+    z-index: 1;
+} */
 
 .Navigation_Bar_Top1 {
     position: fixed;
@@ -248,12 +250,14 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: rgba(111, 169, 236, 0.3);
+    background: rgba(255, 255, 255, .9);
+    z-index: 1;
+    /* background-color: white; */
 }
 
 .Navigation_Bar_Top1 p {
     color: black;
-    margin-left: 50px;
+    margin-left: 0px;
     font-weight: 700;
     text-decoration: none;
     font-size: 2em;
@@ -261,6 +265,25 @@
     letter-spacing: 2px;
 }
 
+.Navigation_Bar_Top1 .Header {
+    color: black;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform: uppercase;
+    font-family: 'Times New Roman', Times, sans-serif;
+    letter-spacing: 2px;
+}
+
+.Navigation_Bar_Top1 .Header img {
+    position: absolute;
+    top: -20%;
+    left: 5%;
+}
+
+.Navigation_Bar_Top1 .Header span {
+    color: rgb(254, 14, 162);
+}
 
 .Navigation_Bar1 {
     display: flex;
@@ -270,6 +293,7 @@
 
 .Navigation_Bar1 #Nav_bar {
     border: none;
+    outline: none;
     border-radius: 20px;
     font-weight: 600;
     margin: 10px;
@@ -281,11 +305,13 @@
 
 .Navigation_Bar1 #Nav_bar:hover {
     background-color: rgb(203, 146, 241);
+    transition: .5s;
     color: white;
 }
 
 .LoginPage_Container .LeftSide {
-    height: 100vh;
+    height: 90vh;
+    margin-top: 5%;
     width: 50%;
     background-image: url(../image/3d-summer-character-male-going-travel-wearing-sunglasses-with-suitcase-and-ball-beach-png.webp);
     background-size: contain;
@@ -1023,14 +1049,71 @@ footer .Developer_info {
 
 
 
+/* Place Card.css */
+.Place_Card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 35px;
+    text-align: justify;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+    margin-bottom: 100px;
+    letter-spacing: .1px;
+    transition: 1s;
+}
+
+.Place_Card img {
+    height: 50vh;
+    margin-right: 10px;
+    border-radius: 20px;
+    transition: 1s;
+}
+
+
+.Place_Card .More_info_btn {
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background-color: white;
+    color: #7e7e7e;
+    padding: 10px;
+    border: .1px solid rgba(51, 51, 51, 0.284);
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.Place_Card .More_info_btn:hover {
+    color: black;
+    box-shadow: 0 0 3px 2px rgb(227, 194, 255);
+}
 
 
 
 
 /*Place.css*/
+
+.Place_Body .Title {
+    font-size: 50px;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    margin-bottom: -5%;
+    margin-left: 1%;
+    margin-bottom: 3%;
+    font-family: 'Times New Roman', Times, serif;
+    /* background-color: black; */
+}
+
+
 .FullView {
-    height: auto;
-    position: relative;
+    height: 65vh;
+    margin-top: 7%;
+    /* position: relative; */
+
 }
 
 .FullView img {
@@ -1591,8 +1674,83 @@ footer .Developer_info {
     color: white;
 }
 
+/* Register page */
+
+.Register_page h2 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-style: oblique;
+    font-family: 'Times New Roman', Times, serif;
+
+}
 
 
+.Register_page form {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    padding: 5vh;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+    border-radius: 20px;
+    border: .1px solid rgba(107, 100, 100, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(30px);
+}
+
+.Register_page .Header {
+    text-transform: uppercase;
+    font-weight: 400;
+    color: white;
+    font-size: 40px;
+}
+
+.Register_page form input {
+    padding: 3vh;
+    margin: 0px;
+    border: .1px solid rgba(107, 100, 100, 0.2);
+    outline: none;
+    border-radius: 10px;
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+}
+
+
+.Register_page form button {
+    padding: 3vh;
+    margin: 0px;
+    border: .1px solid rgba(107, 100, 100, 0.2);
+    outline: none;
+    border-radius: 10px;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+    background-color: transparent;
+}
+
+.Register_page form button:hover {
+    background-color: white;
+    color: black;
+    font-weight: 700;
+    box-shadow: 0 0 3px .5px antiquewhite;
+    transition: 1s;
+}
 
 
 /* OwnerRegistrationForm.css */
@@ -1816,11 +1974,1737 @@ form {
 
 
 
+.Location_info {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 20%;
+}
+
+.Location_info p {
+    margin: 0px;
+    padding: 10px;
+}
+
+.Location_content {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: auto;
+    background-color: pink;
+
+}
+
+
+.Map {
+    height: 100vh;
+    width: auto;
+    /* background-image: url(../image/1f2bb20d-8e6d-42ae-be66-db273fc0268d.png); */
+    background-color: blue;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+
+
+/* UserHomeScreen.css */
+
+.User_Body {
+    scroll-behavior: smooth;
+    background: rgba(240, 248, 255, .3);
+}
+
+.UserView {
+    position: absolute;
+    height: 100vh;
+    width: auto;
+    background-color: palegreen;
+}
+
+.ChatBot {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    bottom: 50px;
+    right: 40px;
+    height: 50px;
+    padding: 5px;
+    border: transparent;
+    outline: none;
+    background: rgba(223, 105, 255, 0.5);
+    width: 50px;
+    border: 1px solid rgb(198, 198, 198);
+    border-radius: 100%;
+    text-align: center;
+    scroll-behavior: smooth;
+    color: black;
+    font-size: 35px;
+}
+
+.ChatBot .left {
+    position: fixed;
+    /* display: flex; */
+    top: 92%;
+    right: 2%;
+    height: 15px;
+    width: 15px;
+    border: none;
+    border-radius: 20px;
+    background: rgba(223, 105, 255, 0.3);
+}
+
+.ChatBot .Right {
+    position: fixed;
+    /* display: flex; */
+    top: 94.5%;
+    right: 1.2%;
+    height: 10px;
+    width: 10px;
+    border: none;
+    border-radius: 20px;
+    background: rgba(223, 105, 255, 0.2);
+}
+
+.UserLocation {
+    top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    height: 70vh;
+    border: none;
+    border-radius: 20px;
+    width: 50vh;
+    margin: 30px;
+    background-color: violet;
+}
+
+.CurrentLocationMap,
+.CurrentPlaceDes {
+    display: inline;
+    border: none;
+    border-radius: 20px 20px 0 0px;
+    height: 100%;
+    width: 100%;
+    background-color: #7e7e7e;
+}
+
+.CurrentPlaceDes {
+    border-radius: 0px 0px 20px 20px;
+    background-color: #F0F8FF;
+}
+
+.places .scrolling-wrapper {
+    width: 140vh;
+}
+
+.User_Content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: pink;
+    flex-direction: row;
+}
+
+.User_Content .card {
+    background-color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 5px .1px black;
+}
+
+
+
+.Explore,
+.Tranding {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 70vh;
+    width: auto;
+    margin-bottom: 10px;
+    background-color: rgba(223, 105, 255, 0.6);
+    background-image: url(../image/Transport/travel_concept_9-01.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.Explore button {
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    font-style: oblique;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    outline: none;
+    border: 2px solid rgb(51, 51, 51, .3);
+    border-radius: 5px;
+    padding: 15px;
+    color: black;
+    cursor: pointer;
+    /* background-color: rgb(64, 224, 208, .5); */
+    background-color: white;
+
+}
+
+.Explore .btns {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.Explore p {
+    font-size: 40px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: lighter;
+    color: white;
+    font-style: oblique;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.btns button {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.Explore button:hover {
+    box-shadow: 0 0 4px .5px white;
+}
+
+.Tranding {
+    flex-direction: column;
+}
+
+.OutSide2 {
+    max-height: 70vh;
+    background-image: url(../image/Cheap-travel.webp);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.OutSide2 p {
+    font-family: 'Times New Roman', Times, serif
+}
+
+
+.Place_to_go {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    margin: 0 8% 0 8%;
+    width: auto;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .card {
+        cursor: pointer;
+        margin: 5px;
+        display: inline-block;
+    }
+}
+
+.Place_to_go .card img {
+    height: 250px;
+    width: 30vh;
+    border: none;
+    border-radius: 10px;
+}
+
+.Header1 {
+    margin-left: 40%;
+    font-size: 40px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 500;
+    font-variant: small-caps;
+    letter-spacing: 2px;
+    margin-left: 50px;
+    margin-bottom: 0;
+}
+
+.Transport,
+.Transport_info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+    height: auto;
+    width: auto;
+    /* background-color: violet; */
+}
+
+/* .Transport_info {
+    background-color: palegoldenrod;
+} */
+
+.Travel_info {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    height: 10vh;
+    width: 70vh;
+    padding: 30px;
+    border: .3px solid #d3d2d2;
+    border-radius: 10px;
+    margin: 30px;
+    background-color: white;
+}
+
+.Travel_info:hover {
+    box-shadow: 0px 0px 3px .2px black;
+    border: none;
+}
+
+.BusImage {
+    margin-right: 30px;
+}
+
+.BusImage img {
+    height: 100px;
+    padding: 0px;
+}
+
+.BusInfo p {
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+    font-style: oblique;
+    text-transform: uppercase;
+    margin: 10px;
+}
+
+
+.Transport_type {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    width: 30vh;
+    padding: 10vh;
+    margin: 30px;
+    /* background-color: brown; */
+    background-image: url(../image/Transport/train.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.Transport .Header {
+    font-size: 60px;
+    margin-right: 5%;
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+.Transport .Header p {
+    margin: 0;
+}
+
+
+.Transport_type button {
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+    font-style: oblique;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    outline: none;
+    border: 2px solid white;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    background-color: transparent;
+    backdrop-filter: blur(3px);
+}
+
+.Transport_type button:hover {
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 4px .5px white;
+}
+
+.NEWS {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    width: auto;
+    background-color: pink;
+}
+
+.NEWS .Card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    height: 50vh;
+    padding: 10px;
+    width: 40vh;
+    background-color: #0086fe;
+}
+
+.NEWS .Card p {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 200;
+    font-style: oblique;
+    letter-spacing: 1px;
+}
+
+.NEWS .Card button {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 200;
+    font-style: oblique;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    outline: none;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: transparent;
+    backdrop-filter: blur(2px);
+}
+
+
+.NEWS .Card button:hover {
+    background-color: white;
+    color: #333;
+}
+
+
+
+
+/* Bus.css */
+
+.Ticket_Booking {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    height: auto;
+    width: auto;
+}
+
+.LeftSide_Search_bar,
+.RightSide_Search_bar {
+    height: auto;
+    width: auto;
+    padding: 50px;
+
+}
+
+.Search_bannar {
+    background-image: url(../image/Transport/Wavy_Tsp-03_Single-02.jpg);
+    background-size: contain;
+    background-position-x: 900px;
+    background-position-y: -50px;
+    overflow: hidden;
+    float: right;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height: 90vh;
+}
+
+.RightSide_Search_bar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.Bus_Details {
+    position: absolute;
+    top: 40%;
+}
+
+.RightSide_Search_bar .Search {
+    margin-top: 10%;
+    margin-left: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    padding: 2vh;
+    border: .1px solid rgba(214, 208, 201, 0.715);
+    outline: none;
+    border-radius: 10px;
+    height: 10vh;
+    width: 130vh;
+    background-color: white;
+}
+
+
+.RightSide_Search_bar .Search input,
+.RightSide_Search_bar .Search button {
+    height: auto;
+    width: auto;
+    border: none;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 300px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: transparent;
+    outline: none;
+    overflow: hidden;
+    color: black;
+}
+
+.RightSide_Search_bar .Search #input {
+    content: '';
+    border-right: 1.5px solid rgba(51, 51, 51, 0.2);
+    height: 14vh;
+    width: auto;
+    margin-right: 10px;
+}
+
+
+.RightSide_Search_bar .Search button {
+    width: auto;
+    background-color: rgba(199, 124, 246, 0.6);
+    height: auto;
+    position: relative;
+    right: -3.23%;
+    overflow-x: hidden;
+    padding: 5.5vh;
+    cursor: pointer;
+    color: white;
+    border-radius: 0 10px 10px 0;
+}
+
+
+.BusCard .Card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    width: auto;
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid rgba(158, 157, 157, 0.5);
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: white;
+}
+
+
+
+/* .Card_Header p::before {
+    content: '';
+    height: 1px;
+    width: 100px;
+    background-color: #333;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: -2;
+} */
+
+.BusCard .Card p {
+    margin-right: 60px;
+}
+
+.LeftSide_Search_bar {
+    position: absolute;
+    top: 15%;
+    left: 3%;
+}
+
+.Card_Header {
+    display: flex;
+    position: absolute;
+    border-radius: 10px;
+    left: 10px;
+    top: 10%;
+    background-color: white;
+    border: .1px solid #b7b7b7;
+    padding: 100px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: start;
+    width: auto;
+    height: auto;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    z-index: 1;
+}
+
+.LeftSide_Search_bar .Btn {
+    width: auto;
+    position: absolute;
+    top: -8%;
+    left: 0;
+    margin-top: -50px;
+    border-radius: 7px;
+    background-color: transparent;
+    border: .1px solid #b7b7b7;
+    padding: 20px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+
+
+
+/* Model.css */
+
+.Model-Container {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.Model {
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    padding: 2rem;
+    width: 30em;
+}
+
+.Model-Header {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+
+
+/* Welcome.css */
+
+.BodyBack {
+    height: 100vh;
+    width: auto;
+    background: url(../image/Temple/temple\ \(5\).jpg);
+    background-size: cover;
+}
+
+.Web_Name {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+.span {
+    margin: 0;
+    text-align: center;
+    font-size: 50px;
+    font-family: Georgia,
+        'Times New Roman',
+        Times,
+        serif;
+    font-weight: 600;
+    font-style: oblique;
+    text-decoration: solid;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.Partner {
+    color: wheat;
+    text-align: center;
+    font-size: 50px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 600;
+    font-style: oblique;
+    text-decoration: solid;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.Intro_image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    /* background-image: url(../image/couple-of-tourist-hold-suitcase-and-paper-map-search-route-3d-character-illustration-png.webp); */
+    background-size: contain;
+    width: 50%;
+}
+
+
+
+.btn {
+    position: absolute;
+    top: 130%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 180px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 500;
+    font-size: 24px;
+    font-style: oblique;
+    text-decoration: solid;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.btn svg,
+.btn svg rect {
+    position: absolute;
+    right: 1%;
+    width: 100%;
+    height: 100%;
+    fill: transparent;
+}
+
+.btn svg rect {
+    stroke: white;
+    stroke-width: 4;
+    transition: 1s;
+    stroke-dasharray: 60, 180;
+    stroke-dashoffset: 90;
+}
+
+.btn:hover svg rect {
+    stroke-dasharray: 60, 180;
+    stroke-dashoffset: 510;
+    stroke: greenyellow;
+}
+
+
+
+/* a {
+    position: relative;
+    display: inline-block;
+    padding: 20px 25px;
+    border: 2px solid white;
+    font-weight: 500;
+    font-style: oblique;
+    text-transform: uppercase;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    letter-spacing: 2px;
+    background-color: black;
+}
+
+a::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: -2px;
+    width: calc(100% + 3px);
+    height: calc(100% - 12px);
+    background-color: black;
+    transition: 0.5s ease-in-out;
+    transform: scaleY(1);
+    transition-delay: 0.5s;
+}
+
+a:hover::before {
+    transform: scaleY(0);
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: -2px;
+    height: calc(100% + 4px);
+    width: calc(100% - 12px);
+    background-color: black;
+    transition: 0.5s ease-in-out;
+    transform: scaleX(1);
+}
+
+a:hover::after {
+    transform: scaleX(0);
+}
+
+a span {
+    position: relative;
+    z-index: 3;
+} */
+
+
+/* Photo.css */
+
+
+.Gallery {
+    margin-top: 5%;
+    height: auto;
+}
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+
+.column {
+    -ms-flex: 20%;
+    flex: 0%;
+    max-width: 25%;
+    padding: 0px 3px;
+    border: none;
+}
+
+
+
+.column img {
+    margin-top: 2%;
+    vertical-align: middle;
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+@media screen and (max-width: 800px) {
+    .column {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+    }
+}
 
 
 
 
 
 
+/* Auto Scroll.css */
+.Carousel_Image {
+    z-index: -1;
+}
+
+/* .Carousel_Image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right bottom, rgba(35, 35, 35, 1), transparent);
+} */
+
+.Carousel_Padding::before {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, rgb(255, 255, 255), transparent);
+    z-index: 1;
+}
+
+.Place_Body .btn {
+    top: 50%;
+    z-index: 2;
+    font-size: 30px;
+}
+
+
+
+
+
+
+/* Car2 */
+
+
+.slideshow {
+    overflow: hidden;
+}
+
+.slideshow-wrapper {
+    display: flex;
+    width: 400%;
+    position: relative;
+    animation: slideshow 200s infinite;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+}
+
+.slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@keyframes slideshow {
+    0% {
+        left: 0;
+    }
+
+    10% {
+        left: 0;
+    }
+
+    15% {
+        left: -100%;
+    }
+
+    25% {
+        left: -100%;
+    }
+
+    30% {
+        left: -200%;
+    }
+
+    40% {
+        left: -200%;
+    }
+
+    45% {
+        left: -300%;
+    }
+
+    55% {
+        left: -300%;
+    }
+
+    60% {
+        left: -200%;
+    }
+
+    70% {
+        left: -200%;
+    }
+
+    75% {
+        left: -100%;
+    }
+
+    85% {
+        left: -100%;
+    }
+
+    90% {
+        left: 0%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* demo */
+.main-container {
+    height: 100vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 99%;
+    margin: 0px auto;
+    margin-top: 20%;
+    margin-bottom: 20%;
+}
+
+.card_View {
+    position: relative;
+    width: 50vh;
+    height: 350px;
+    margin: 10px auto;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+    position: relative;
+    border-radius: 20px;
+}
+
+.card_View.open {
+    width: 100vw;
+    height: 350px;
+}
+
+.card_View.align-left {
+    flex-direction: row;
+}
+
+.card_View.align-right {
+    flex-direction: row-reverse;
+}
+
+.card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    overflow-y: auto;
+    max-height: 50%;
+}
+
+
+.card_View.open .card-content {
+    opacity: 1;
+}
+
+
+.card-details {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: 1px;
+    color: #333;
+}
+
+.card-image {
+    width: 700px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.view-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(76, 175, 80, 0.8);
+    color: white;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.card_View:hover:not(.open) .card-image {
+    filter: blur(1px) saturate(1.5);
+    height: 450px;
+    transition: .5s;
+    /* Add a background blur on hover */
+}
+
+
+
+.card_View:hover:not(.open) .view-button {
+    opacity: 1;
+    /* Show the button only on hover when not opened */
+}
+
+
+
+
+
+/* Chatbot.css */
+
+
+
+
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    font-family: Arial, sans-serif;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.chat-header {
+    background-color: #2196f3;
+    color: #fff;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.chat-content {
+    padding: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.message {
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.user {
+    background-color: #efefef;
+    text-align: right;
+}
+
+.bot {
+    background-color: #d3e7f5;
+}
+
+.chat-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+    input {
+        flex: 1;
+        padding: 8px;
+        margin-right: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+    }
+
+    svg {
+        cursor: pointer;
+    }
+}
+
+.closed {
+    height: 60px;
+    border-radius: 50%;
+}
+
+.open {
+    height: 300px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* NewsCard.css */
+.news-card {
+    border-radius: 10px;
+    width: 20%;
+    text-align: center;
+    border: 1px solid #ddd;
+    background-color: rgba(223, 223, 223, 0.5);
+    padding: 20px;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.news-card:hover {
+    background-color: #f9f9f9;
+}
+
+/* App.css */
+.app {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 20px;
+    max-width: 90%;
+    height: 80vh;
+    border-radius: 8px;
+    text-align: center;
+
+}
+
+.popup-content_Image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content img {
+    width: 50%;
+}
+
+.close_button {
+    cursor: pointer;
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    font-size: 40px;
+    font-weight: 800;
+    font-family: Times, serif;
+    transition: .5s;
+}
+
+.close_button:hover {
+    color: red;
+    rotate: 90deg;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+#body {
+    font-family: Poppins;
+    margin: 0;
+    background-color: #010101;
+    color: #eee;
+    width: 100vw;
+    height: 100vh;
+}
+
+svg {
+    width: 25px;
+}
+
+header {
+    width: 120px;
+    max-width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-rows: 50px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+}
+
+header .logo {
+    font-weight: bold;
+}
+
+header .menu {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-weight: 500;
+}
+
+/* css slider */
+.slider {
+    height: 107vh;
+    margin-top: -50px;
+    position: relative;
+}
+
+.slider .list .item {
+    position: absolute;
+    inset: 0 0 0 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: .5s;
+}
+
+.slider .list .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider .list .item::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-image: linear-gradient(to top, rgba(10, 10, 10, 0.834) 40%, transparent);
+}
+
+.slider .list .item .content {
+    position: absolute;
+    left: 10%;
+    top: 20%;
+    width: 500px;
+    max-width: 80%;
+    z-index: 1;
+}
+
+.slider .list .item .content p:nth-child(1) {
+    text-transform: uppercase;
+    letter-spacing: 10px;
+}
+
+.slider .list .item .content h2 {
+    font-size: 50px;
+    margin: 0;
+}
+
+.slider .list .item.active {
+    opacity: 1;
+    z-index: 10;
+}
+
+@keyframes showContent {
+    to {
+        transform: translateY(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+.slider .list .item.active p:nth-child(1),
+.slider .list .item.active h2,
+.slider .list .item.active p:nth-child(3) {
+    transform: translateY(30px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent .5s .7s ease-in-out 1 forwards;
+}
+
+.slider .list .item.active h2 {
+    animation-delay: 1s;
+}
+
+.slider .list .item.active p:nth-child(3) {
+    animation-duration: 1.3s;
+}
+
+
+.arrows1 {
+    position: absolute;
+    top: 45%;
+    left: 4%;
+    z-index: 1000;
+    background-color: #eee5;
+    border: none;
+    font-family: monospace;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: x-large;
+    color: #eee;
+    transition: .5s;
+}
+
+.arrows2 {
+    position: absolute;
+    top: 45%;
+    right: 4%;
+    z-index: 1000;
+    background-color: #eee5;
+    border: none;
+    font-family: monospace;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: x-large;
+    color: #eee;
+    transition: .5s;
+}
+
+.arrows button:hover {
+    background-color: #eee;
+    color: black;
+}
+
+.thumbnail {
+    position: absolute;
+    bottom: 50px;
+    z-index: 11;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    height: 250px;
+    padding: 0 50px;
+    box-sizing: border-box;
+    overflow: auto;
+    justify-content: center;
+}
+
+.thumbnail::-webkit-scrollbar {
+    width: 0;
+}
+
+.thumbnail .item {
+    width: 150px;
+    height: 220px;
+    filter: brightness(.5);
+    transition: .5s;
+    flex-shrink: 0;
+}
+
+.thumbnail .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.thumbnail .item.active {
+    filter: brightness(1.5);
+}
+
+.thumbnail .item .content {
+    position: absolute;
+    inset: auto 10px 10px 10px;
+}
+
+@media screen and (max-width: 678px) {
+    .thumbnail {
+        justify-content: start;
+    }
+
+    .slider .list .item .content h2 {
+        font-size: 60px;
+    }
+
+    .arrows {
+        top: 10%;
+    }
+}
+
+
+.smoke {
+    z-index: 10000;
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    text-transform: uppercase;
+}
+
+.smoke ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+}
+
+.smoke ul li {
+    list-style: none;
+    font-weight: bold;
+    letter-spacing: 10px;
+    filter: blur(0px);
+    /* -webkit-text-stroke: 1px rgba(255, 255, 255, 0.897); */
+    color: rgba(255, 255, 255, 0.234);
+    font-size: 15em;
+    /* background-image: url(./images/img1.png);
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-size: cover; */
+}
+
+
+.smoke ul:hover li {
+    animation: smoke 3s linear backwards;
+}
+
+
+@keyframes smoke {
+    0% {
+        transform: rotate(0deg) translateY(0px);
+        opacity: 1;
+        /* -webkit-text-stroke: 1px rgba(255, 255, 255, 0.897); */
+        color: #ffffff3e;
+        filter: blur(1px);
+    }
+
+    100% {
+        transform: rotate(50deg) translateY(-200px);
+        opacity: 0;
+        color: #ffffff;
+        filter: blur(100px);
+
+    }
+}
+
+.PlaceName {
+    width: auto;
+    height: auto;
+    z-index: 100;
+    animation: none;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+}
+
+.PlaceName h1 {
+    text-shadow: 0 1px .5px rgba(255, 255, 255, 0.146);
+    -webkit-text-stroke: 1.5px rgb(176, 176, 176);
+    color: white;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    font-size: 200px;
+    font-family: monospace;
+    color: rgba(255, 255, 255, 0.019);
+    background-clip: text;
+    -webkit-background-clip: border-box;
+}
+
+.smoke ul li:nth-child(1) {
+    animation-delay: 0s
+}
+
+.smoke ul li:nth-child(2) {
+    animation-delay: .4s
+}
+
+.smoke ul li:nth-child(3) {
+    animation-delay: .8s
+}
+
+.smoke ul li:nth-child(4) {
+    animation-delay: 1.2s
+}
+
+.smoke ul li:nth-child(5) {
+    animation-delay: 1.6s
+}
+
+
+
+.scroll-down-button {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 15px;
+    z-index: 10000;
+    background-color: transparent;
+    outline: none;
+    right: 5%;
+    color: #dd48ff;
+    letter-spacing: 1px;
+    font-family: Poppins;
+    border: none;
+    cursor: pointer;
+}
+
+
+.Place_data {
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    height: auto;
+    width: auto;
+    justify-content: center;
+
+}
+
+.P1 {
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+
+.P1 .Card {
+    /* display: inline-block; */
+    height: 45vh;
+    width: 45vh;
+    padding: 10px;
+    background-color: pink;
+    background-image: url(../image/places/shutterstock_1217496787_20200206101724.png);
+    background-size: cover;
+    border-radius: 10px;
+
+}
+
+.P1 .Card .content1 {
+    /* position: relative; */
+    color: white;
+    margin-top: 40vh;
+    text-align: center;
+    letter-spacing: 2px;
+    font-family: monospace;
+    font-size: 25px;
+}
+
+.P1 .Content {
+    /* position: relative; */
+    text-align: center;
+    letter-spacing: 2px;
+    font-family: monospace;
+    font-size: 25px;
+}
+
+
+
+
+.P1 .Content {
+    width: 100vh;
+    align-items: center;
+}
+
+.P1 .Review {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#startIcon {
+    height: 15px;
+    width: 15px;
+}
+
+
+
+
+
+.GridCard {
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.GridCard #Card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    height: 100px;
+    width: 100px;
+    /* background-color: pink; */
+    border: 1px solid rgb(255, 165, 255, .3);
+    border-radius: 10px;
+    text-align: center;
+    letter-spacing: 1.5px;
+    font-family: monospace;
+    color: #e77dffb6;
+    font-size: 25px;
+    margin-left: 35px;
+}
+
+.GridCard #Card:hover {
+    background-color: #dd48ff21;
+
+}
+
+
+.Shop_Card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.Scard {
+    height: 200px;
+    width: 200px;
+    margin-bottom: 10px;
+    background-color: pink;
+}
 
 /* https://www.freecodecamp.org/news/build-an-image-carousel-with-react-and-framer-motion/ */

@@ -1,8 +1,10 @@
 //Login page
+import OfferBanner from "../../Offer_Banner/offer";
 import DataChecker from "./DataChecker";
 
 function Login() {
     return (<>
+        <OfferBanner />
         <DataChecker />
     </>)
 }

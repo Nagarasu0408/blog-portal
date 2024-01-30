@@ -1,41 +1,58 @@
 //DataChecker.js
 
 import { useRef, useState, useEffect } from 'react';
-import { UserData } from './UserData';
 import { useNavigate } from 'react-router-dom'
 import { FAQData } from '../../Data/FAQData';
+import axios from 'axios';
+import Footer from '../screens/Footer';
+import GoToTop from '../screens/GotoTop';
 
 function DataChecker() {
     const navigate = useNavigate();
-    const [Username, setUserName] = useState("");
-    const [Password, setPassword] = useState("");
-    const NameValue = (e) => { setUserName(e.target.value) };
-    const PasswordValue = (e) => { setPassword(e.target.value) };
-    const [BacktoTop, setBacktoTop] = useState(false);
-
-    useEffect(() => {
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 100) {
-                setBacktoTop(true);
-            }
-            else {
-                setBacktoTop(false);
-            }
-        })
-    }, []);
-
-    const scrollUp = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        })
-    }
+    const [username, setUserName] = useState('');
+    const [password, setPassword] = useState('');
 
 
-    const HandleLogin = () => {
-        const user = UserData.find(user => user.UserName === Username && user.Password === Password);
-        user ? navigate('/') : alert('UserName or Password is wrong');
+
+
+
+
+
+
+
+
+
+    //login
+    const HandleLogin = (e) => {
+        e.preventDefault();
+        if (username === '' || password === '') {
+            alert('please Enter Username and Password');
+        }
+        else {
+            axios.post('http://localhost:3001/login', { username, password })
+                .then(result => {
+                    if (result.data === "Success") {
+                        navigate('/user', { state: { id: username } });
+                    } else {
+                        console.log(result.data);
+                        alert('please Enter Correct Username and Password');
+                        setUserName('');
+                        setPassword('');
+                        // Provide user-friendly feedback, e.g., display an error message to the user
+                    }
+                })
+                .catch(err => {
+                    console.error("Error during login:", err);
+                    // Provide user-friendly feedback, e.g., display an error message to the user
+                });
+        }
     };
+
+
+
+
+
+
     // useRef Hook
     const ref1 = useRef(null);
     const HandleClick1 = () => {
@@ -48,6 +65,10 @@ function DataChecker() {
     const ref3 = useRef(null);
     const HandleClick3 = () => {
         ref3.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+    const ref4 = useRef(null);
+    const HandleClick4 = () => {
+        ref4.current?.scrollIntoView({ behavior: 'smooth' });
     }
 
     const [progressHeight, setProgressHeight] = useState(0);
@@ -82,40 +103,42 @@ function DataChecker() {
             <div className='Body_Background'>
 
                 <div className='Navigation_Bar_Top1'>
-                    <p >Logo</p>
+                    <p className='Header'><img src='logo4.svg' alt='logo' style={{ height: "150px" }} />Travel <span>Partner</span></p>
                     <div className='Navigation_Bar1'>
                         <button id='Nav_bar' onClick={HandleClick1}>Home</button>
                         <button id='Nav_bar' onClick={HandleClick2}>About</button>
                         <button id='Nav_bar' onClick={HandleClick3}>FAQ</button>
-                        <button id='Nav_bar' >Login</button>
+                        <button id='Nav_bar' onClick={HandleClick4} >Support</button>
                     </div>
                 </div >
                 <div className='LoginPage_Container' ref={ref1}>
                     <div className='LeftSide'></div>
                     <div className='RightSide'></div>
+                    <form onSubmit={HandleLogin}>
+                        <div id='Login'>
+                            <h3>Log in</h3>
 
-                    <div id='Login'>
-                        <h3>Log in</h3>
-
-                        <p>
-                            <input type="text" name="UserName" placeholder="User Name" id='input_box' value={Username} onChange={NameValue}></input>
-                        </p>
-                        <p>
-                            <input type="password" name="Password" id='password_box' placeholder="Password" value={Password} onChange={PasswordValue}></input>
-                        </p>
-                        <div className='forgot_password'>
-                            <button href='#'>Forgot password?</button>
+                            <p>
+                                <input type="text" name="UserName" placeholder="User Name" id='input_box' value={username} onChange={(e) => { setUserName(e.target.value) }}></input>
+                            </p>
+                            <p>
+                                <input type="password" name="Password" id='password_box' placeholder="Password" value={password} onChange={(e) => { setPassword(e.target.value) }}></input>
+                            </p>
+                            <div className='forgot_password'>
+                                <button href='#'>Forgot password?</button>
+                            </div>
+                            <p>
+                                <center><button type="submit" id='btn' name="Login" > Log in</button></center>
+                            </p>
+                            <div className='LoginMethod'>
+                                <div className='Google'></div>
+                                <div className='Phone'></div>
+                            </div>
+                            <div className='Create_Account'><button type="button" name="Register" onClick={() => navigate('/register')}>Create account</button></div>
                         </div>
-                        <p>
-                            <center><button type="button" id='btn' name="Login" onClick={HandleLogin}> Log in</button></center>
-                        </p>
-                        <div className='LoginMethod'>
-                            <div className='Google'></div>
-                            <div className='Phone'></div>
-                        </div>
-                        <div className='Create_Account'><button type="button" name="Register">Create account</button></div>
-                    </div>
+                    </form>
                 </div >
+
                 <div className='demo' ref={ref2}>
                     <p className='Header'>About Us</p>
                     <div className='About_Us'>
@@ -130,7 +153,7 @@ function DataChecker() {
             <div className='OutSide'><p>Welcome To India.....</p></div>
 
             <div className="scrolling-wrapper">
-                <div className="card" onClick={() => navigate('Place')}>
+                <div className="card" onClick={() => navigate('/Place')}>
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Altja_j%C3%B5gi_Lahemaal.jpg/1200px-Altja_j%C3%B5gi_Lahemaal.jpg" alt='image' />
                     <h2>
                         Name
@@ -187,21 +210,9 @@ function DataChecker() {
                     ))}
                 </div>
             </div>
-            <div className='BacktoTop'>
-                {BacktoTop && (
-                    <div>
-                        <p>
-                            <button onClick={scrollUp}>
-                                ^
-                            </button>
-                        </p>
-                        <p>Top</p>
-                    </div>
-
-                )}
-            </div>
         </div>
-        <div className='Footer' >
+        <GoToTop />
+        {/* <div className='Footer' ref={ref4} >
             <div className='Developer_info'>
                 <div className='foot'>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
@@ -225,7 +236,9 @@ function DataChecker() {
                     </p>
                 </div>
             </div>
-        </div>
+        </div> */}
+
+        <Footer />
     </>)
 }
 
