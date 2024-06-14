@@ -10,8 +10,13 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import TourIcon from '@mui/icons-material/Tour';
 import Footer from '../Components2/screens/Footer';
+import GoToTop from '../Components2/screens/GotoTop';
+import ShopDetails from '../Components2/ShopDetails';
+import Scale from '../Components2/Effect/scale';
+
 
 const SliderComponent = () => {
+
     // State variables
     const [itemActive, setItemActive] = useState(0);
 
@@ -101,9 +106,10 @@ const SliderComponent = () => {
                 </div>
                 <div className='scroll-down-button-container'>
                     <button onClick={handleScrollDown} className="scroll-down-button">
-                        Scroll Down<ArrowDownwardIcon style={{ height: '25px', width: '25px', marginLeft: '5px' }} />
+                        Scroll To Explore<ArrowDownwardIcon style={{ height: '25px', width: '25px', marginLeft: '5px' }} />
                     </button>
                 </div>
+
                 <div className='Place_data'>
                     <div className='P1'>
                         <div className='Card'>
@@ -134,7 +140,7 @@ const SliderComponent = () => {
 
                     </div>
                 </div>
-                {/* <div className='GridCard'>
+                <div className='GridCard'>
                     <div id='Card'>
                         <TempleHinduIcon style={{ height: '50px', width: '50px', }} />
                         Temple
@@ -153,9 +159,12 @@ const SliderComponent = () => {
                     </div>
                 </div>
                 <div className='Shop_Card'>
-                    <div className='Scard'></div>
+                    {/* <div className='Scard'></div> */}
+                    <ShopDetails className='Scard' />
                 </div>
-                <Footer /> */}
+                {/* <Footer /> */}
+                <GoToTop />
+                <Scale />
             </>
         );
     };

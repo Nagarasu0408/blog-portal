@@ -26,6 +26,7 @@ import PhotoGrid from './Components2/screens/PhotoGallery';
 import Chatbot from './chatbot';
 import OfferBanner from './Offer_Banner/offer';
 import SliderComponent from './Location/PlaceDetail';
+import Filter from './demoCode';
 function App() {
   return (
     <>
@@ -46,7 +47,7 @@ function App() {
         <Route path='/Photo' element={<PhotoGrid />} />
         <Route path='/Chat' element={<Chatbot />} />
         <Route path='/offer' element={<OfferBanner />} />
-
+        <Route path='/DD' element={<Filter />}></Route>
 
 
 

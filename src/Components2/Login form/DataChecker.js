@@ -114,7 +114,8 @@ function DataChecker() {
                 <div className='LoginPage_Container' ref={ref1}>
                     <div className='LeftSide'></div>
                     <div className='RightSide'></div>
-                    <form onSubmit={HandleLogin}>
+                    {/* <form onSubmit={HandleLogin}> */}
+                    <form>
                         <div id='Login'>
                             <h3>Log in</h3>
 
@@ -128,7 +129,7 @@ function DataChecker() {
                                 <button href='#'>Forgot password?</button>
                             </div>
                             <p>
-                                <center><button type="submit" id='btn' name="Login" > Log in</button></center>
+                                <center><button type="submit" id='btn' name="Login" onClick={() => navigate('/demo')}> Log in</button></center>
                             </p>
                             <div className='LoginMethod'>
                                 <div className='Google'></div>
@@ -153,13 +154,13 @@ function DataChecker() {
             <div className='OutSide'><p>Welcome To India.....</p></div>
 
             <div className="scrolling-wrapper">
-                <div className="card" onClick={() => navigate('/Place')}>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Altja_j%C3%B5gi_Lahemaal.jpg/1200px-Altja_j%C3%B5gi_Lahemaal.jpg" alt='image' />
+                <div className="card" onClick={() => navigate('/demo')}>
+                    <img src="https://images.unsplash.com/photo-1491497895121-1334fc14d8c9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt='image' />
                     <h2>
-                        Name
+                        Ooty
                     </h2>
                     <p>
-                        Description about place
+                        Queen of the Hills
                     </p>
                 </div>
                 <div className="card">

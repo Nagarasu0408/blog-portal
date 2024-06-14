@@ -52,7 +52,8 @@ import Profile from './Login form/Profile.js';
 
 function Card() {
     const [isSent, setIsSent] = useState(false);
-    const [ViewProfile, setViewProfile] = useState(false)
+    const [ViewProfile, setViewProfile] = useState(false);
+    const [search, setSearch] = useState("");
     if (isSent) {
         return (<>
             <ShopDetails />
@@ -89,16 +90,18 @@ function Card() {
                 <center><input placeholder='Search Places...' /></center>
             </div>
             <br />
-            {CardDetails.map((e) =>
-                <div key={e.Id} className="Container" onClick={() => setIsSent(true)} >
-                    <img className="StoreImage" src={e.Image}></img>
-                    <p><h3>{e.StoreName}</h3></p>
-                    <p>{e.Description}</p>
-                    <p>{e.Rating}</p>
-                </div>
-            )}
-            <br />
-        </div>
+            <div className="Shop_Card">
+                {CardDetails.map((e) =>
+                    <div key={e.Id} className="Container" onClick={() => setIsSent(true)} >
+                        <img className="StoreImage" src={e.Image}></img>
+                        <h3><p>{e.StoreName}</p></h3>
+                        <p>{e.Description}</p>
+                        <p>{e.Rating}</p>
+                    </div>
+                )}
+                <br />
+            </div>
+        </div >
         {/* <div className='Comment_Area'>
 
         </div> */}

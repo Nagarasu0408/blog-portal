@@ -1,6 +1,6 @@
 // import React, { useState } from 'react';
 
-import { FAQData } from "./Data/FAQData";
+// import { FAQData } from "./Data/FAQData";
 
 // const CardDetails = ({ title, content }) => (
 //     <div>
@@ -63,3 +63,35 @@ import { FAQData } from "./Data/FAQData";
 //         ^
 //     </button>)
 // }
+
+
+
+
+import React, { useState, useEffect } from "react";
+import Axios from "axios";
+
+function Filter() {
+    const [name, setName] = useState('');
+    const [user, setUser] = useState([]);
+
+
+    useEffect(() => {
+        Axios.get("https://jsonplaceholder.org/users").then(response => setUser(response.data));
+    }, [])
+
+
+    return (
+        <>
+            <input value={name} onChange={(e) => setName(e.target.value)}></input >
+            <div>
+                {name.length > 0 && user.map(e => (<div>
+                    {e.firstname.includes(name) ? e.firstname : ""}</div>)
+                )
+                }
+            </div>
+        </>
+    );
+};
+
+
+export default Filter;
