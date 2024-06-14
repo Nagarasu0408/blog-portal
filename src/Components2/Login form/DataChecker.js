@@ -201,7 +201,7 @@ function DataChecker() {
                 </div>
             </div>
             <div id='FAQ' ref={ref3}>
-                <img src={require('F:/react/Personal/Project/blog-portal/src/image/3d-male-character-sitting-on-a-sofa-and-working-on-a-laptop-with-thinking-pose-free-png.webp')}></img>
+                <img src={require('F:/React JS/react/Personal/Project/blog-portal/src/image/3d-male-character-sitting-on-a-sofa-and-working-on-a-laptop-with-thinking-pose-free-png.webp')}></img>
                 <div className='Questions_Card'>
                     <p id='Header'>FAQ?</p>
                     {FAQData.map((event) => (
